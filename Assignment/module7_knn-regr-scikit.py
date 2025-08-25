@@ -12,13 +12,15 @@ def main():
             raise ValueError("k must be a positive integer.")
 
         print(f"Enter {n} data points (x then y):")
-        points = []
+
+        points = np.zeros((n, 2), dtype=float)
+
         for i in range(n):
             x_val = float(input(f"Enter x value for point {i+1} - x: "))
-            y_val = float(input(f"Enter x value for point {i+1} - y: "))
-            points.append((x_val, y_val))
+            y_val = float(input(f"Enter y value for point {i+1} - y: "))
+            points[i, 0] = x_val
+            points[i, 1] = y_val
 
-        points = np.array(points)
         x_train = points[:, 0].reshape(-1, 1)
         y_train = points[:, 1]
 
